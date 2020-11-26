@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class Vehicle implements Serializable{
     @DynamoDBHashKey(attributeName = "licensePlate")
     private String licensePlate;
     @DynamoDBAttribute(attributeName = "owner")
-    private String ownerId;
+    private Owner owner;
     @DynamoDBAttribute
     private String type;
     @DynamoDBAttribute
@@ -29,21 +30,7 @@ public class Vehicle implements Serializable{
     @DynamoDBAttribute
     private String color;
     @DynamoDBAttribute
-    private String creationDate;
-    @DynamoDBAttribute
-    private String updateDate;
-    @DynamoDBAttribute
-    private String createdBy;
-    @DynamoDBAttribute
-    private String updatedBy;
-
-    public String getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
+    private String admissionDate;
 
     public String getLicensePlate() {
         return licensePlate;
@@ -51,6 +38,14 @@ public class Vehicle implements Serializable{
 
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     public String getType() {
@@ -85,36 +80,12 @@ public class Vehicle implements Serializable{
         this.color = color;
     }
 
-    public String getCreationDate() {
-        return creationDate;
+    public String getAdmissionDate() {
+        return admissionDate;
     }
 
-    public void setCreationDate(String creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public String getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(String updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
+    public void setAdmissionDate(String admissionDate) {
+        this.admissionDate = admissionDate;
     }
 }
 

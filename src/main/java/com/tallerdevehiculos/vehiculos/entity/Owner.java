@@ -1,21 +1,27 @@
 package com.tallerdevehiculos.vehiculos.entity;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
+
 import java.io.Serializable;
 
-
+@DynamoDBDocument
 public class Owner implements Serializable {
 
+    @DynamoDBAttribute
     private String uId;
+    @DynamoDBAttribute
     private int id;
+    @DynamoDBAttribute
     private String name;
+    @DynamoDBAttribute
     private String lastName;
+    @DynamoDBAttribute
     private int telephone;
+    @DynamoDBAttribute
     private String email;
+    @DynamoDBAttribute
     private String creationDate;
-    private String updateDate;
-    private String createdBy;
-    private String updatedBy;
-
 
     public String getuId() {
         return uId;
@@ -73,30 +79,6 @@ public class Owner implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public String getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(String updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public String toJson(){
         String json="{"+
                 '\u201C'+ "uId" + '\u201C' +":"+'\u201C'+getuId()+'\u201C'+","+
@@ -105,10 +87,7 @@ public class Owner implements Serializable {
                 '\u201C'+ "lastName" + '\u201C' +":"+'\u201C'+getLastName()+'\u201C'+","+
                 '\u201C'+ "telephone" + '\u201C' +":"+'\u201C'+getTelephone()+'\u201C'+","+
                 '\u201C'+ "email" + '\u201C' +":"+'\u201C'+getEmail()+'\u201C'+","+
-                '\u201C'+ "creationDate" + '\u201C' +":"+'\u201C'+getCreationDate()+'\u201C'+","+
-                '\u201C'+ "updateDate" + '\u201C' +":"+'\u201C'+getUpdateDate()+'\u201C'+","+
-                '\u201C'+ "createdBy" + '\u201C' +":"+'\u201C'+getCreatedBy()+'\u201C'+","+
-                '\u201C'+ "updateBy" + '\u201C' +":"+'\u201C'+getUpdatedBy()+'\u201C'+"}";
+                '\u201C'+ "creationDate" + '\u201C' +":"+'\u201C'+getCreationDate()+'\u201C'+"}";
         return json;
 
     }
